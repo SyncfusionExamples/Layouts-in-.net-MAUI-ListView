@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:local="clr-namespace:MAUI_ListView_Layouts"
+             x:Class="MAUI_ListView_Layouts.MainPage">
+    
+    <ContentPage.Resources>
+        <local:SfImageSourceConverter x:Key="ImageConverter"/>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <local:GalleryInfoViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+
+        <syncfusion:SfListView x:Name="listView" 
+                                 SelectionMode="None" 
+                                 Grid.Row="1"         
+                                 ItemSize="240"
+                                 ItemsSource="{Binding GalleryInfo}"                                  
+                                 ScrollBarVisibility="Always">
+
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Image Source="{Binding Image,Converter={StaticResource ImageConverter}}" Aspect="AspectFill" />
+                        
+                        <Label Text="{Binding ImageCount}" BackgroundColor="Grey"  TextColor="White" 
+                                       VerticalTextAlignment="Center" VerticalOptions="End" />
+
+                        <Label   Text="{Binding ImageTitle}" Grid.Row="1" 
+                                    VerticalTextAlignment="Center" 
+                                    VerticalOptions="Center" />
+
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+            
+        </syncfusion:SfListView>
+        
+    </ContentPage.Content>
+</ContentPage>

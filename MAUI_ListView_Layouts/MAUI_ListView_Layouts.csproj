@@ -1,0 +1,152 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>MAUI_ListView_Layouts</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>MAUI_ListView_Layouts</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.maui_listview_layouts</ApplicationId>
+		<ApplicationIdGuid>efd3a2e6-8de2-4b30-97e3-9b63af4f5f58</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidResource Remove="Helper\**" />
+	  <Compile Remove="Helper\**" />
+	  <EmbeddedResource Remove="Helper\**" />
+	  <MauiCss Remove="Helper\**" />
+	  <MauiXaml Remove="Helper\**" />
+	  <None Remove="Helper\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\animals.png" />
+	  <MauiImage Remove="Resources\Images\art.png" />
+	  <MauiImage Remove="Resources\Images\baby.png" />
+	  <MauiImage Remove="Resources\Images\birds.png" />
+	  <MauiImage Remove="Resources\Images\books.png" />
+	  <MauiImage Remove="Resources\Images\bread.png" />
+	  <MauiImage Remove="Resources\Images\caffe.png" />
+	  <MauiImage Remove="Resources\Images\cars.png" />
+	  <MauiImage Remove="Resources\Images\chineserecipe.png" />
+	  <MauiImage Remove="Resources\Images\clippers.png" />
+	  <MauiImage Remove="Resources\Images\computeraccessories.png" />
+	  <MauiImage Remove="Resources\Images\contactform.png" />
+	  <MauiImage Remove="Resources\Images\cosmetics.png" />
+	  <MauiImage Remove="Resources\Images\creditcard.png" />
+	  <MauiImage Remove="Resources\Images\crocs.png" />
+	  <MauiImage Remove="Resources\Images\denvernuggets.png" />
+	  <MauiImage Remove="Resources\Images\designs.png" />
+	  <MauiImage Remove="Resources\Images\egg.png" />
+	  <MauiImage Remove="Resources\Images\electronics.png" />
+	  <MauiImage Remove="Resources\Images\fashion.png" />
+	  <MauiImage Remove="Resources\Images\flowers.png" />
+	  <MauiImage Remove="Resources\Images\food.png" />
+	  <MauiImage Remove="Resources\Images\footware.png" />
+	  <MauiImage Remove="Resources\Images\house.png" />
+	  <MauiImage Remove="Resources\Images\indianrecipe.png" />
+	  <MauiImage Remove="Resources\Images\jewelry.png" />
+	  <MauiImage Remove="Resources\Images\kids.png" />
+	  <MauiImage Remove="Resources\Images\kitchen.png" />
+	  <MauiImage Remove="Resources\Images\logos.png" />
+	  <MauiImage Remove="Resources\Images\mobiles.png" />
+	  <MauiImage Remove="Resources\Images\music.png" />
+	  <MauiImage Remove="Resources\Images\paintings.png" />
+	  <MauiImage Remove="Resources\Images\pancakes.png" />
+	  <MauiImage Remove="Resources\Images\pasta.png" />
+	  <MauiImage Remove="Resources\Images\pastry.png" />
+	  <MauiImage Remove="Resources\Images\pizza.png" />
+	  <MauiImage Remove="Resources\Images\places.png" />
+	  <MauiImage Remove="Resources\Images\sandwiches.png" />
+	  <MauiImage Remove="Resources\Images\soup.png" />
+	  <MauiImage Remove="Resources\Images\sports.png" />
+	  <MauiImage Remove="Resources\Images\storagedevices.png" />
+	  <MauiImage Remove="Resources\Images\thairecipe.png" />
+	  <MauiImage Remove="Resources\Images\thunder_logo.png" />
+	  <MauiImage Remove="Resources\Images\vehicles.png" />
+	  <MauiImage Remove="Resources\Images\wallpaper.png" />
+	  <MauiImage Remove="Resources\Images\watches.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\artist.png" />
+	  <None Remove="Resources\Images\baby.png" />
+	  <None Remove="Resources\Images\flowers.png" />
+	  <None Remove="Resources\Images\house.png" />
+	  <None Remove="Resources\Images\indianrecipe.png" />
+	  <None Remove="Resources\Images\jewelry.png" />
+	  <None Remove="Resources\Images\kids.png" />
+	  <None Remove="Resources\Images\kitchen.png" />
+	  <None Remove="Resources\Images\logos.png" />
+	  <None Remove="Resources\Images\masonry.png" />
+	  <None Remove="Resources\Images\mobiles.png" />
+	  <None Remove="Resources\Images\museum.png" />
+	  <None Remove="Resources\Images\music.png" />
+	  <None Remove="Resources\Images\paintings.png" />
+	  <None Remove="Resources\Images\pancakes.png" />
+	  <None Remove="Resources\Images\pasta.png" />
+	  <None Remove="Resources\Images\pastry.png" />
+	  <None Remove="Resources\Images\pizza.png" />
+	  <None Remove="Resources\Images\places.png" />
+	  <None Remove="Resources\Images\sandwiches.png" />
+	  <None Remove="Resources\Images\wallpaper.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Images\animals.png" />
+	  <EmbeddedResource Include="Resources\Images\art.png" />
+	  <EmbeddedResource Include="Resources\Images\books.png" />
+	  <EmbeddedResource Include="Resources\Images\fashion.png" />
+	  <EmbeddedResource Include="Resources\Images\food.png" />
+	  <EmbeddedResource Include="Resources\Images\footware.png" />
+	  <EmbeddedResource Include="Resources\Images\jewelry.png" />
+	  <EmbeddedResource Include="Resources\Images\kids.png" />
+	  <EmbeddedResource Include="Resources\Images\places.png" />
+	  <EmbeddedResource Include="Resources\Images\watches.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Syncfusion.Maui.Core" Version="20.4.52" />
+		<PackageReference Include="Syncfusion.Maui.ListView" Version="20.4.52" />
+	</ItemGroup>
+
+</Project>

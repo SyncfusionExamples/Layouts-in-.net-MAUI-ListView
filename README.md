@@ -1,6 +1,6 @@
-# Layouts-in-.net-MAUI-ListView
+# Layouts in .NET MAUI ListView (SfListView)
 
-This sample demonstrates how to create a custom layouts for a item to the .net MAUI ListView.
+This sample demonstrates how to create a custom layouts for a item to the .NET MAUI ListView (SfListView).
 
 ```
  <syncfusion:SfListView x:Name="listView" 
